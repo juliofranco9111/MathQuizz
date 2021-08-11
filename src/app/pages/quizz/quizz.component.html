@@ -1,0 +1,31 @@
+<div class="quizz__container">
+
+    <div class='quizz__puntuation animated fadeIn'>
+        <div class='quizz__button'>
+            <button class='btn-secondary'>
+                Salir
+            </button>
+        </div>
+        <div class='quizz__puntuation_number'>
+            100
+            <img src="assets/medal.png" alt='medal-icon' />
+        </div>
+    </div>
+
+    <!-- Question component -->
+    <app-question></app-question>
+
+    <!-- Si error -->
+    <div class='animated fadeIn'>
+        <h1 class='animated pulse infinite quizz__error_icon'>❌</h1>
+
+        <div class='quizz__error'>
+            <h2>La respuesta es:123</h2>
+        </div>
+    </div>
+    <!-- Si correcto -->
+    <div class='animated fadeIn'>
+        <h1 class=' animated pulse infinite quizz__error_icon true'>✔</h1>
+    </div>
+
+</div>

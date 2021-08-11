@@ -1,0 +1,61 @@
+@import './variables';
+
+@import url(https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;800;900&display=swap);
+
+@import url(https://fonts.googleapis.com/css2?family=Paytone+One&display=swap);
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  color: darken(white, 3%);
+}
+
+h1 {
+  font-family: 'Paytone One', sans-serif;
+  letter-spacing: 1px;
+}
+
+body {
+  background: $gradient;
+  font-family: 'Catamaran', sans-serif;
+}
+
+
+label{
+  font-family: 'Paytone One', sans-serif;
+  font-weight: 600;
+  font-size: 1.5em;
+}
+
+.btn-primary{
+    background: $button;
+    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    font-size: 20px;
+    margin-bottom: 40px;
+    margin-top: 15px;
+    padding: 10px 20px;
+    width: 100%;
+    &:hover{
+        background: rgba(223, 0, 255, 0.8);
+        box-shadow: 2px 10px 5px -3px rgba(176,176,176,0.1);
+    }
+}
+
+
+.btn-secondary{
+    background: transparent;
+    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px 20px;
+    width: 100%;
+    &:hover{
+      background: rgba(223, 0, 255, 0.8);
+      box-shadow: 2px 10px 5px -3px rgba(176,176,176,0.1);
+    }
+    
+}
