@@ -1,3 +1,4 @@
+import { LevelItemComponent } from './../components/level-item/level-item.component';
 import { FormComponent } from './../components/form/form.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -10,7 +11,7 @@ import { LevelComponent } from './level/level.component';
 
 @NgModule({
   imports: [ReactiveFormsModule, CommonModule],
-  exports: [StartComponent, FormComponent, QuestionComponent],
+  exports: [StartComponent, FormComponent, QuestionComponent, LevelItemComponent],
   declarations: [
     StartComponent,
     FormComponent,
@@ -18,6 +19,7 @@ import { LevelComponent } from './level/level.component';
     QuizzComponent,
     GameOverComponent,
     LevelComponent,
+    LevelItemComponent
   ],
   providers: [],
 })

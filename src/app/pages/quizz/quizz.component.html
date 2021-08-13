@@ -2,21 +2,22 @@
 
     <div class='quizz__puntuation animated fadeIn'>
         <div class='quizz__button'>
-            <button class='btn-secondary'>
+            <button (click)="handleNavigate('/')" class='btn-secondary'>
                 Salir
             </button>
         </div>
         <div class='quizz__puntuation_number'>
-            100
+            {{points}}
             <img src="assets/medal.png" alt='medal-icon' />
         </div>
     </div>
 
     <!-- Question component -->
-    <app-question></app-question>
+    <app-question *ngIf="!loading" [firstNumber]="firstNumber" [secondNumber]="secondNumber"
+        (setResponse)="handleValidateResponse($event)"></app-question>
 
     <!-- Si error -->
-    <div class='animated fadeIn'>
+    <div *ngIf="error && !correct" class='animated fadeIn'>
         <h1 class='animated pulse infinite quizz__error_icon'>❌</h1>
 
         <div class='quizz__error'>
@@ -24,8 +25,9 @@
         </div>
     </div>
     <!-- Si correcto -->
-    <div class='animated fadeIn'>
+    <div *ngIf="correct && !error" class='animated fadeIn'>
         <h1 class=' animated pulse infinite quizz__error_icon true'>✔</h1>
     </div>
+
 
 </div>

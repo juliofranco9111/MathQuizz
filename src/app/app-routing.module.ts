@@ -7,7 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', component: StartComponent },
-  { path: 'quizz', component: QuizzComponent },
+  { path: 'quizz/:level', component: QuizzComponent },
   { path: 'level', component: LevelComponent },
   { path: 'game-over', component: GameOverComponent },
   { path: '**', redirectTo: '/' },

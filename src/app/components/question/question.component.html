@@ -1,10 +1,7 @@
 <div class='question__container animated fadeIn'>
-    <h1 class='quizz__h1'>¿Cuánto es 2 x 8 ?</h1>
+    <h1 class='quizz__h1'>¿Cuánto es {{firstNumber}} x {{secondNumber}}</h1>
 
     <div class='quizz__options animated fadeIn'>
-      <button class="btn-secondary quizz__option">2</button>
-      <button class="btn-secondary quizz__option">4</button>
-      <button class="btn-secondary quizz__option">8</button>
-      <button class="btn-secondary quizz__option">15</button>
+      <button (click)="handleResponse(response)" *ngFor="let response of responses" class="btn-secondary quizz__option">{{response}}</button>
     </div>
   </div>
