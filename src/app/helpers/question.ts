@@ -11,6 +11,10 @@ export function getQuestion(level: number) {
     case 3:
       randomNumOne = Math.round(Math.random() * 3) + 7;
       break;
+      
+      case 4:
+      randomNumOne = Math.round(Math.random() * 8) + 1;
+      break;
   }
   const randomNumTwo = Math.round(Math.random() * (9 - 1) + 1);
 

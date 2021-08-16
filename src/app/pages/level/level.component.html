@@ -4,7 +4,7 @@
 
     
     <div class='btn-secondary level__option' (click)="handleSelectLevel(level.level)" *ngFor="let level of levels">
-        <app-level-item level="{{level.level}}" numbers="{{level.numbers}}"></app-level-item>
+        <app-level-item level="{{level.level}}" numbers="{{level.numbers}}" maxPoints="{{level.maxPoints}}"></app-level-item>
     </div>
 
 

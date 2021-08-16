@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '', component: StartComponent },
   { path: 'quizz/:level', component: QuizzComponent },
   { path: 'level', component: LevelComponent },
-  { path: 'game-over', component: GameOverComponent },
+  { path: 'game-over/:level', component: GameOverComponent },
   { path: '**', redirectTo: '/' },
 ];
 

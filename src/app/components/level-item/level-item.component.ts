@@ -1,18 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-level-item',
   templateUrl: './level-item.component.html',
-  styleUrls: ['./level-item.component.scss']
+  styleUrls: ['./level-item.component.scss'],
 })
-export class LevelItemComponent implements OnInit {
+export class LevelItemComponent {
+  @Input() level: string;
+  @Input() numbers: string;
+  @Input() maxPoints: string;
 
-  @Input() level: string
-  @Input() numbers: string
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  
 }

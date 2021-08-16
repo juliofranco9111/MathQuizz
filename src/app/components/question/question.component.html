@@ -2,6 +2,6 @@
     <h1 class='quizz__h1'>¿Cuánto es {{firstNumber}} x {{secondNumber}}</h1>
 
     <div class='quizz__options animated fadeIn'>
-      <button (click)="handleResponse(response)" *ngFor="let response of responses" class="btn-secondary quizz__option">{{response}}</button>
+      <button [disabled]="disabled" (click)="handleResponse(response)" *ngFor="let response of responses" class="btn-secondary quizz__option">{{response}}</button>
     </div>
   </div>

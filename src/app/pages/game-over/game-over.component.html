@@ -3,21 +3,17 @@
       <h1 class='gameover__title'>
         Felicidades usuario
       </h1>
-   
     <div>
       <img src="assets/medal.png" class='gameover__icon' alt='medal-icon' />
-      <h1 class='gameover__points'>3400</h1>
+      <h1 *ngIf="current" class='gameover__points'>{{ current  }}</h1>
       
-        <h2 class='gameover__best'>Mejor puntuación:1522</h2>
+        <h2 *ngIf="max" class='gameover__best'>Mejor puntuación: {{max}}</h2>
       
     </div>
-    <button class='gameover__btn btn-secondary'>
+    <a routerLink="level" class='gameover__btn btn-secondary'>
       Niveles
-    </button>
-    <button class='gameover__btn'>
+    </a>
+    <a (click)="handleStartAgain()" class='gameover__btn btn-primary'>
       Otra vez
-    </button>
-
-      
-   
+    </a>
   </div>

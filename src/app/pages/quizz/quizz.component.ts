@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { getQuestion } from 'src/app/helpers/question';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-quizz',
@@ -21,26 +22,33 @@ export class QuizzComponent implements OnInit {
 
   public level: number;
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  public prevQuestion: number[];
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private dataService: DataService
+  ) {}
 
   ngOnInit(): void {
+    localStorage.setItem('current', null);
     this.loading = true;
     this.level = parseInt(this.route.params['value'].level);
     this.question = getQuestion(this.level);
     this.firstNumber = this.question[0];
     this.secondNumber = this.question[1];
     this.loading = false;
-
-    /* setTimeout(() => {
-      this.handleNextQuestion();
-      console.log('me hago');
-    }, 5000); */
   }
 
   handleNextQuestion() {
     this.question = getQuestion(this.level);
-    this.firstNumber = this.question[0];
-    this.secondNumber = this.question[1];
+    if (this.prevQuestion === this.question) {
+      this.question = getQuestion(this.level);
+      console.log('me repeat');
+    } else {
+      this.firstNumber = this.question[0];
+      this.secondNumber = this.question[1];
+    }
   }
 
   handleNavigate(path: string) {
@@ -51,10 +59,11 @@ export class QuizzComponent implements OnInit {
     if (response !== this.firstNumber * this.secondNumber) {
       this.error = true;
       this.correct = false;
+      this.prevQuestion = this.question;
       setTimeout(() => {
-        this.handleNavigate('/game-over');
+        this.handleNavigate(`game-over/${this.level}`);
         this.correct = null;
-      }, 1300);
+      }, 1000);
 
       return;
     }
@@ -62,8 +71,9 @@ export class QuizzComponent implements OnInit {
     this.correct = true;
     setTimeout(() => {
       this.points = this.points + 100;
+      this.dataService.setPoints(this.points);
       this.correct = null;
       this.handleNextQuestion();
-    }, 1300);
+    }, 1000);
   }
 }

@@ -1,9 +1,9 @@
 <div>
-    <h1 class='level__title'>{{level}}</h1>
-    <h2>{{numbers}}</h2>
+    <h1 *ngIf="level"  class='level__title'>{{level}}</h1>
+    <h2 *ngIf="numbers">{{numbers}}</h2>
 </div>
 
-<div>
+<div *ngIf="maxPoints">
     <img class='level__icon_medal' src="assets/medal.png" alt='medal-icon' width='40' height='40' />
-    <p>2500</p>
+    <p>{{maxPoints}} points</p>
 </div>

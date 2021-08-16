@@ -34,18 +34,8 @@
 }
 
 .gameover__btn {
-  height: 45px;
-  padding: 5px 20px;
+  display: block;
   width: 100%;
-  font-size: 20px;
-  font-weight: 600;
-margin-top: 15px;
-  border-radius: 5px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  background: rgba(223, 0, 255, 0.5);
-  cursor: pointer;
-  &:hover {
-    background: rgba(223, 0, 255, 0.8);
-    box-shadow: 2px 10px 5px -3px rgba(176, 176, 176, 0.1);
-  }
+  margin-top: 25px;
+  text-align: center;
 }
