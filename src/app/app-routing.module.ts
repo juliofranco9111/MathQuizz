@@ -4,12 +4,13 @@ import { QuizzComponent } from './pages/quizz/quizz.component';
 import { StartComponent } from './pages/start/start.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PagesGuard } from './guards/pages.guard';
 
 const routes: Routes = [
   { path: '', component: StartComponent },
-  { path: 'quizz/:level', component: QuizzComponent },
-  { path: 'level', component: LevelComponent },
-  { path: 'game-over/:level', component: GameOverComponent },
+  { path: 'quizz/:level', component: QuizzComponent, canActivate: [PagesGuard] },
+  { path: 'level', component: LevelComponent, canActivate: [PagesGuard] },
+  { path: 'game-over/:level', component: GameOverComponent, canActivate: [PagesGuard] },
   { path: '**', redirectTo: '/' },
 ];
 

@@ -11,6 +11,13 @@
   color: darken(white, 3%);
 }
 
+a{
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Catamaran', sans-serif;
+}
+
 h1 {
   font-family: 'Paytone One', sans-serif;
   letter-spacing: 1px;
@@ -19,6 +26,7 @@ h1 {
 body {
   background: $gradient;
   font-family: 'Catamaran', sans-serif;
+  max-height: 95vh;
 }
 
 
@@ -33,7 +41,8 @@ label{
     border-radius: 5px;
     border: 2px solid rgba(255, 255, 255, 0.5);
     cursor: pointer;
-    font-size: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
     margin-bottom: 40px;
     margin-top: 15px;
     padding: 10px 20px;
@@ -50,7 +59,7 @@ label{
     border-radius: 5px;
     border: 2px solid rgba(255, 255, 255, 0.5);
     cursor: pointer;
-    font-size: 20px;
+    font-size: 1.5em;
     padding: 10px 20px;
     width: 100%;
     &:hover{

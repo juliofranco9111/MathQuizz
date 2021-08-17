@@ -1,10 +1,10 @@
-<div class="quizz__container">
+<div class="quizz__container animated fadeIn">
 
     <div class='quizz__puntuation animated fadeIn'>
         <div class='quizz__button'>
-            <button (click)="handleNavigate('/')" class='btn-secondary'>
+            <a [routerLink]="['/']" class='btn-secondary'>
                 Salir
-            </button>
+            </a>
         </div>
         <div class='quizz__puntuation_number'>
             {{points}}
@@ -17,17 +17,14 @@
         (setResponse)="handleValidateResponse($event)"></app-question>
 
     <!-- Si error -->
-    <div *ngIf="error && !correct" class='animated fadeIn'>
-        <h1 class='animated pulse infinite quizz__error_icon'>❌</h1>
+    <div class="animated fadeIn quizz__error">
+        <h1 *ngIf="!correct && error" class='animated pulse infinite quizz__error_icon'>❌</h1>
 
-        <div class='quizz__error'>
-            <h2>La respuesta es: {{firstNumber}}</h2>
-        </div>
+        <h2 *ngIf="!correct && error">La respuesta es: {{firstNumber * secondNumber}}</h2>
+
+        <h1 *ngIf="correct && !error" class="animated pulse infinite quizz__error_icon true">✔</h1>
     </div>
-    <!-- Si correcto -->
-    <div *ngIf="correct && !error" class='animated fadeIn'>
-        <h1 class=' animated pulse infinite quizz__error_icon true'>✔</h1>
-    </div>
+
 
 
 </div>

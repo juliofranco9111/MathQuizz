@@ -5,7 +5,7 @@ import { FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss'],
+  styleUrls: [],
 })
 export class FormComponent implements OnInit {
   userName = this.dataS.getUserName();

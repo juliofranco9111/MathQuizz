@@ -6,7 +6,7 @@ import { DataService } from 'src/app/services/data.service';
 @Component({
   selector: 'app-quizz',
   templateUrl: './quizz.component.html',
-  styleUrls: ['./quizz.component.scss'],
+  styleUrls: [],
 })
 export class QuizzComponent implements OnInit {
   public error: boolean;
@@ -44,7 +44,7 @@ export class QuizzComponent implements OnInit {
     this.question = getQuestion(this.level);
     if (this.prevQuestion === this.question) {
       this.question = getQuestion(this.level);
-      console.log('me repeat');
+      
     } else {
       this.firstNumber = this.question[0];
       this.secondNumber = this.question[1];
@@ -74,6 +74,6 @@ export class QuizzComponent implements OnInit {
       this.dataService.setPoints(this.points);
       this.correct = null;
       this.handleNextQuestion();
-    }, 1000);
+    }, 700);
   }
 }

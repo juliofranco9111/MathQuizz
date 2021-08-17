@@ -1,7 +1,9 @@
 .gameover {
+  display: grid;
+  place-content: center;
   position: relative;
   .gameover__icon-fiesta {
-    position: absolute;
+    //position: absolute;
     width: 250px;
     top: 0;
     left: 0;

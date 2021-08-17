@@ -5,7 +5,7 @@ import { DataService } from 'src/app/services/data.service';
 @Component({
   selector: 'app-game-over',
   templateUrl: './game-over.component.html',
-  styleUrls: ['./game-over.component.scss'],
+  styleUrls: [],
 })
 export class GameOverComponent implements OnInit {
   public level = parseInt(this.route.params['_value'].level);
@@ -17,24 +17,17 @@ export class GameOverComponent implements OnInit {
     private router: Router
   ) {}
   ngOnInit(): void {
-     
-    console.log(this.level);
-    console.log(this.max);
+    if (!this.max && this.current > 0) {
+      this.dataService.setMaxPoints(this.current, this.level);
+    }
+
+    if (this.max && this.current > this.max) {
+      this.max = this.current;
+      this.dataService.setMaxPoints(this.current, this.level);
+    }  
   }
 
   handleStartAgain(): void {
-
-    if(!this.max && this.current > 0){
-      console.log('no sirve');
-      this.dataService.setMaxPoints(this.current, this.level)
-    }
-
-    if(this.max && this.current > this.max){
-      this.max = this.current;
-      this.dataService.setMaxPoints(this.current, this.level)
-    }
-    
     this.router.navigateByUrl(`quizz/${this.level}`);
-
   }
 }

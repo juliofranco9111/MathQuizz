@@ -5,7 +5,7 @@ import { DataService } from 'src/app/services/data.service';
 @Component({
   selector: 'app-level',
   templateUrl: './level.component.html',
-  styleUrls: ['./level.component.scss'],
+  styleUrls: [],
 })
 export class LevelComponent implements OnInit {
   public levels = [

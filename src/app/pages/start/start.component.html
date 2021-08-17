@@ -1,21 +1,13 @@
 <img src="assets/logo.png" class="profile__logo animated pulse slower infinite" alt="logo-image" />
 <h1 class="profile__h1">¿Cuánto sabes de ...tablas de multiplicar?🤔</h1>
 
-
-
 <app-form *ngIf="showForm" (closeForm)="showForm = false; nameUser = $event"> </app-form>
-
-
-
-
 
 <div *ngIf="!showForm">
     <h1 class="profile__h1">{{nameUser ? nameUser : ''}}</h1>
     <br>
-    <button (click)="showForm = !showForm" class="btn-secondary">Cambiar nombre</button>
-    <button (click)="handleStart()" class="btn-primary">
-        
-            Empezar
-        
-    </button>
+    <a (click)="showForm = !showForm" class="btn-secondary">Cambiar nombre</a>
+    <a [routerLink]="['/level']"  class="btn-primary">        
+            Empezar        
+    </a>
 </div>

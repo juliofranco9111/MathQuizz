@@ -33,7 +33,7 @@
   }
 
   .quizz__h1 {
-    font-size: 1.5em;
+    font-size: 2em;
     letter-spacing: 1px;
     text-align: center;
     flex-direction: column;
@@ -63,15 +63,16 @@
     }
     
   }
-
+  
   .quizz__error {
+    height: 100px;
     font-weight: 800;
     font-size: 1em;
     h2{
       text-align: center;
     }
   }
-
+  
   .quizz__error_icon {
     width: 40px;
     display: block;
@@ -82,10 +83,17 @@
     .quizz__puntuation {
       margin-bottom: 20px;
     }
-
+    
     .question__container {
       margin-top: 10px;
       margin-bottom: 0px;
+    }
+  }
+  
+  @media (min-width: 510px){
+    .quizz__option{
+      min-width: 500px;
+      
     }
   }
 }

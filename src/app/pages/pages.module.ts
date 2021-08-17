@@ -8,9 +8,10 @@ import { QuestionComponent } from './../components/question/question.component';
 import { QuizzComponent } from './quizz/quizz.component';
 import { GameOverComponent } from './game-over/game-over.component';
 import { LevelComponent } from './level/level.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterModule],
   exports: [StartComponent, FormComponent, QuestionComponent, LevelItemComponent],
   declarations: [
     StartComponent,
