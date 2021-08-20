@@ -1,13 +1,15 @@
-<img src="assets/logo.png" class="profile__logo animated pulse slower infinite" alt="logo-image" />
-<h1 class="profile__h1">¿Cuánto sabes de ...tablas de multiplicar?🤔</h1>
+<img *ngIf="!loading" src="assets/logo.png" class="profile__logo animated pulse slower infinite" alt="logo-image" />
+<h1 *ngIf="!loading" class="profile__h1">¿Cuánto sabes de ...tablas de multiplicar?🤔</h1>
 
-<app-form *ngIf="showForm" (closeForm)="showForm = false; nameUser = $event"> </app-form>
+<app-form *ngIf="showForm && !loading" (closeForm)="showForm = false; nameUser = $event"> </app-form>
 
-<div *ngIf="!showForm">
+<div *ngIf="!showForm && !loading">
     <h1 class="profile__h1">{{nameUser ? nameUser : ''}}</h1>
     <br>
     <a (click)="showForm = !showForm" class="btn-secondary">Cambiar nombre</a>
-    <a [routerLink]="['/level']"  class="btn-primary">        
+    <a [routerLink]="['/level']" data-title="Welcome!" data-intro="Hello World!" class="btn-primary">        
             Empezar        
     </a>
 </div>
+
+<app-loading *ngIf="loading"></app-loading>

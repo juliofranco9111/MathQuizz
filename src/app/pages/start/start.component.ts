@@ -11,6 +11,7 @@ export class StartComponent implements OnInit {
   
   public nameUser: string;
   showForm = false;
+  loading = true;
 
   constructor(private dataS: DataService, private router: Router) {}
 
@@ -20,6 +21,10 @@ export class StartComponent implements OnInit {
     if (!this.nameUser || this.nameUser === '') {
       this.showForm = true;
     }
+
+    this.loading = false;
+
+    
   }
 
   

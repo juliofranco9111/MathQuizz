@@ -1,9 +1,10 @@
 .container {
   display: flex;
   align-items: center;
-  flex-direction: column;
-  min-height: 90vh;
   justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  min-height: 100vh;
   margin: 0px auto;
   width: 500px;
 }
