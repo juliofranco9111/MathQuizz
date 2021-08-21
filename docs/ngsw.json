@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1629524950475,
+  "timestamp": 1629525402343,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -17,7 +17,7 @@
         "/manifest.webmanifest",
         "/polyfills.8c151b8375e767ff858f.js",
         "/runtime.0e49e2b53282f40c8925.js",
-        "/styles.15c540614ed1666585d1.css"
+        "/styles.f1d4c800897d7e96f142.css"
       ],
       "patterns": []
     },
@@ -58,12 +58,12 @@
     "/assets/logo.png": "49fb615f027fa3aac2703a5e2ae627495d8a25b3",
     "/assets/medal.png": "ba271d24034ff294477315e3e46fd4b187dd343c",
     "/favicon.ico": "d8395802518209397db099ac45ec29cc5eb8a892",
-    "/index.html": "6dd61ce9edbf0c6b668ff8cef6973a234ea8da26",
+    "/index.html": "e533da6dc2fb5528d4c9cab6d8b0dd588a1e3e15",
     "/main.b0f6d52a00761ec03a10.js": "9fd7838a4386b5af1fac9fdc2f5c6e48268f7384",
     "/manifest.webmanifest": "c3482d466bdb3b85ac3a494245adbdf62e5b5bc6",
     "/polyfills.8c151b8375e767ff858f.js": "763cd3b34dfa4600ebb9d9588ec7116988e98920",
     "/runtime.0e49e2b53282f40c8925.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/styles.15c540614ed1666585d1.css": "ff97c9c1e4eb0591dfe3c98b03b8ac7348de79e2"
+    "/styles.f1d4c800897d7e96f142.css": "bc669a0a59eb5fe3f7058146e6b5917182a545fd"
   },
   "navigationUrls": [
     {
