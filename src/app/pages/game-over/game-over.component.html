@@ -1,7 +1,7 @@
 <div *ngIf="!loading" class='gameover animate__animated animate__fadeIn'>
   <div class='gameover__exit_btn'>
 
-    <a [routerLink]="['/']" class='btn-secondary'>
+    <a [routerLink]="['/']" class='btn-secondary pb-2'>
       Salir
     </a>
   </div>
@@ -9,7 +9,7 @@
   <h1 *ngIf="current === 0" class='gameover__title'>Juego terminado</h1>
   <h1 *ngIf="current > 0" class='gameover__title'>Felicidades {{userName}}</h1>
   <div>
-    <img src="assets/medal.png" class='gameover__icon' alt='medal-icon' />
+    <app-medal width="150"></app-medal>
     <h1 *ngIf="current" class='gameover__points'>{{ current }}</h1>
 
     <h2 *ngIf="max" class='gameover__best'>Mejor puntuación: {{max}}</h2>

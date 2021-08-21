@@ -1,0 +1,87 @@
+{
+  "configVersion": 1,
+  "timestamp": 1629524950475,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main.b0f6d52a00761ec03a10.js",
+        "/manifest.webmanifest",
+        "/polyfills.8c151b8375e767ff858f.js",
+        "/runtime.0e49e2b53282f40c8925.js",
+        "/styles.15c540614ed1666585d1.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/assets/icons/apple-touch-icon-180x180.png",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/logo.png",
+        "/assets/medal.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/icons/apple-touch-icon-180x180.png": "bf5c82d9c03f6dd81003771eddc8c2e9f81c07ce",
+    "/assets/icons/icon-128x128.png": "0236b6ee28d143c07479c8dd6f9ab1b043f5ba36",
+    "/assets/icons/icon-144x144.png": "fdb3e8b6d40f26e06e0162ac371024cbdf47c9a7",
+    "/assets/icons/icon-152x152.png": "f968cea0ca6bf84dd6a450e31aadd38170ab045f",
+    "/assets/icons/icon-192x192.png": "c3b2708bc805fe60e912b46df15e172a6291cea0",
+    "/assets/icons/icon-384x384.png": "e52e6d3f17940fd5fdbf4111ee0d4aa897c2b345",
+    "/assets/icons/icon-512x512.png": "ce2f55d278a1633d6a7ddc27e74b1da72d2c5bae",
+    "/assets/icons/icon-72x72.png": "28d1139c05c4639d48f5b72b27cd0b540f9f670f",
+    "/assets/icons/icon-96x96.png": "5a941ac58818a9da0e57d43c742196619dd79dc2",
+    "/assets/logo.png": "49fb615f027fa3aac2703a5e2ae627495d8a25b3",
+    "/assets/medal.png": "ba271d24034ff294477315e3e46fd4b187dd343c",
+    "/favicon.ico": "d8395802518209397db099ac45ec29cc5eb8a892",
+    "/index.html": "6dd61ce9edbf0c6b668ff8cef6973a234ea8da26",
+    "/main.b0f6d52a00761ec03a10.js": "9fd7838a4386b5af1fac9fdc2f5c6e48268f7384",
+    "/manifest.webmanifest": "c3482d466bdb3b85ac3a494245adbdf62e5b5bc6",
+    "/polyfills.8c151b8375e767ff858f.js": "763cd3b34dfa4600ebb9d9588ec7116988e98920",
+    "/runtime.0e49e2b53282f40c8925.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/styles.15c540614ed1666585d1.css": "ff97c9c1e4eb0591dfe3c98b03b8ac7348de79e2"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
