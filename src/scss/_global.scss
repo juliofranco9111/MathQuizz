@@ -24,11 +24,9 @@ h1 {
 }
 
 body {
-  //background: $gradient;
 
-  background:linear-gradient(135deg, #2e266e 0%,#7b2189 100%);
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+ background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+
 
   font-family: 'Catamaran', sans-serif;
   max-height: 100vh;
@@ -50,12 +48,14 @@ label{
     font-weight: bold;
     margin-bottom: 40px;
     margin-top: 15px;
-    padding: 10px 20px;
+    padding: 12px 20px;
     width: 100%;
     &:hover{
         box-shadow: 2px 10px 5px -3px rgba(176,176,176,0.2);
     }
 }
+
+button.btn-secondary{padding: 16px 20px;}
 
 
 .btn-secondary{

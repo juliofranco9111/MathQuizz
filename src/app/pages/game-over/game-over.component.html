@@ -1,12 +1,11 @@
 <div *ngIf="!loading" class='gameover animate__animated animate__fadeIn'>
-  <div class='quizz__puntuation animated fadeIn'>
-    <div class='quizz__button'>
-      <a [routerLink]="['/']" class='btn-secondary'>
-        Salir
-      </a>
-    </div>
+  <div class='gameover__exit_btn'>
 
+    <a [routerLink]="['/']" class='btn-secondary'>
+      Salir
+    </a>
   </div>
+    
   <h1 *ngIf="current === 0" class='gameover__title'>Juego terminado</h1>
   <h1 *ngIf="current > 0" class='gameover__title'>Felicidades {{userName}}</h1>
   <div>

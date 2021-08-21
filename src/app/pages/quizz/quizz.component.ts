@@ -11,18 +11,16 @@ import { DataService } from 'src/app/services/data.service';
 export class QuizzComponent implements OnInit {
   public error: boolean;
   public correct: boolean;
+  public loading = true;
+
   public question: number[];
+  public prevQuestion: number[];
 
   public points: number = 0;
 
   public firstNumber: number;
   public secondNumber: number;
-
-  public loading = true;
-
   public level: number;
-
-  public prevQuestion: number[];
 
   constructor(
     private router: Router,
@@ -36,28 +34,19 @@ export class QuizzComponent implements OnInit {
     this.question = getQuestion(this.level);
     this.firstNumber = this.question[0];
     this.secondNumber = this.question[1];
-    this.loading = false;
+    this.loading = false;    
   }
 
   handleNextQuestion(prev: number[]) {
-    this.question = getQuestion(this.level);
-    if (
-      this.prevQuestion[0] === this.question[0] &&
-      this.prevQuestion[1] === this.question[1]
-    ) {
-      this.question = null;
-      this.question = getQuestion(this.level);
-    } else {
-      this.firstNumber = this.question[0];
-      this.secondNumber = this.question[1];
-    }
+    this.question = getQuestion(this.level, this.prevQuestion);
+    this.firstNumber = this.question[0];
+    this.secondNumber = this.question[1];
   }
 
   handleValidateResponse(response: number) {
     if (response !== this.firstNumber * this.secondNumber) {
       this.error = true;
       this.correct = false;
-      this.prevQuestion = this.question;
       setTimeout(() => {
         this.router.navigateByUrl(`game-over/${this.level}`);
         this.correct = null;
