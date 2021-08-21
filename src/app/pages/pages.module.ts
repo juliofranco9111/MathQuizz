@@ -10,10 +10,11 @@ import { QuizzComponent } from './quizz/quizz.component';
 import { GameOverComponent } from './game-over/game-over.component';
 import { LevelComponent } from './level/level.component';
 import { RouterModule } from '@angular/router';
+import { MedalComponent } from '../components/medal/medal.component';
 
 @NgModule({
   imports: [ReactiveFormsModule, CommonModule, RouterModule],
-  exports: [StartComponent, FormComponent, QuestionComponent, LevelItemComponent, LoadingComponent],
+  exports: [StartComponent, FormComponent, QuestionComponent, LevelItemComponent, LoadingComponent, MedalComponent],
   declarations: [
     StartComponent,
     FormComponent,
@@ -21,6 +22,7 @@ import { RouterModule } from '@angular/router';
     QuizzComponent,
     GameOverComponent,
     LevelComponent,
+    MedalComponent,
     LevelItemComponent,
     LoadingComponent
   ],
