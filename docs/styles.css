@@ -1,0 +1,444 @@
+@import url(https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;800;900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Paytone+One&display=swap);
+
+/*!
+ * animate.css - https://animate.style/
+ * Version - 4.1.1
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ *
+ * Copyright (c) 2020 Animate.css
+ */
+:root {
+  --animate-duration: 1s;
+  --animate-delay: 1s;
+  --animate-repeat: 1 ;
+}
+.animated {
+  animation-duration: 1s;
+  animation-duration: var(--animate-duration);
+  animation-fill-mode: both;
+}
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+.animated.repeat-1 {
+  animation-iteration-count: 1;
+  animation-iteration-count: var(--animate-repeat);
+}
+.animated.repeat-2 {
+  animation-iteration-count: 2;
+  animation-iteration-count: calc(var(--animate-repeat)*2);
+}
+.animated.repeat-3 {
+  animation-iteration-count: 3;
+  animation-iteration-count: calc(var(--animate-repeat)*3);
+}
+.animated.delay-1s {
+  animation-delay: 1s;
+  animation-delay: var(--animate-delay);
+}
+.animated.delay-2s {
+  animation-delay: 2s;
+  animation-delay: calc(var(--animate-delay)*2);
+}
+.animated.delay-3s {
+  animation-delay: 3s;
+  animation-delay: calc(var(--animate-delay)*3);
+}
+.animated.delay-4s {
+  animation-delay: 4s;
+  animation-delay: calc(var(--animate-delay)*4);
+}
+.animated.delay-5s {
+  animation-delay: 5s;
+  animation-delay: calc(var(--animate-delay)*5);
+}
+.animated.faster {
+  animation-duration: 0.5s;
+  animation-duration: calc(var(--animate-duration)/2);
+}
+.animated.fast {
+  animation-duration: 0.8s;
+  animation-duration: calc(var(--animate-duration)*0.8);
+}
+.animated.slow {
+  animation-duration: 2s;
+  animation-duration: calc(var(--animate-duration)*2);
+}
+.animated.slower {
+  animation-duration: 3s;
+  animation-duration: calc(var(--animate-duration)*3);
+}
+@media (prefers-reduced-motion: reduce), print {
+  .animated {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .animated[class*=Out] {
+    opacity: 0;
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.pulse {
+  animation-name: pulse;
+  animation-timing-function: ease-in-out;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fadeIn {
+  animation-name: fadeIn;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0px auto;
+  width: 500px;
+}
+@media (max-width: 700px) {
+  .container {
+    margin: 0px;
+    border-radius: 0px;
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    padding: 0px 20px;
+  }
+}
+.gameover {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 500px;
+  max-width: 500px;
+}
+.gameover .gameover__icon-fiesta {
+  width: 250px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  opacity: 0.3;
+}
+.gameover__exit_btn {
+  display: block;
+  width: 50%;
+  padding-bottom: 10px;
+}
+.gameover__title {
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.gameover__icon {
+  display: block;
+  margin: 0px auto;
+  width: 150px;
+}
+.gameover__points {
+  font-size: 2.5em;
+  text-align: center;
+}
+.gameover__best {
+  text-align: center;
+}
+.gameover__btn {
+  display: block;
+  width: 100%;
+  margin-top: 25px;
+  text-align: center;
+}
+@media (max-width: 700px) {
+  .gameover {
+    max-width: auto;
+    width: 100%;
+  }
+}
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  color: whitesmoke;
+}
+a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Catamaran", sans-serif;
+}
+h1 {
+  font-family: "Paytone One", sans-serif;
+  letter-spacing: 1px;
+}
+body {
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  font-family: "Catamaran", sans-serif;
+  max-height: 100vh;
+}
+label {
+  font-family: "Paytone One", sans-serif;
+  font-weight: 600;
+  font-size: 1.5em;
+}
+.btn-primary {
+  background: rgba(223, 0, 255, 0.5);
+  border-radius: 5px;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 40px;
+  margin-top: 15px;
+  padding: 5px 20px;
+  width: 100%;
+}
+.btn-primary:hover {
+  box-shadow: 2px 10px 5px -3px rgba(176, 176, 176, 0.2);
+}
+.center {
+  display: block;
+  margin: 0px auto;
+}
+button.btn-secondary {
+  padding: 6px 20px;
+}
+.btn-secondary {
+  background: transparent;
+  border-radius: 5px;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  font-size: 1.5em;
+  padding: 5px 20px;
+  width: 100%;
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 2px 10px 5px -3px rgba(176, 176, 176, 0.1);
+}
+.pb-2 {
+  margin-bottom: 20px;
+}
+.level__container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.level__option {
+  width: calc(50% - 5px);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  text-align: center;
+  font-weight: 700;
+}
+.level__option .level__title {
+  color: white;
+}
+.level__option h2 {
+  font-size: 1em;
+}
+.level__option p {
+  font-size: 0.8em;
+}
+.level__option .level__icon_medal {
+  transition: transform 300ms;
+  border-radius: 999;
+}
+.level__option:hover .level__icon_medal {
+  transform: scale(1.05);
+  box-shadow: 2px 10px 5px -3px rgba(176, 176, 176, 0.1);
+}
+@media (min-width: 500px) {
+  .level__container {
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+}
+.loader__container {
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  font-size: 1.3em;
+  display: grid;
+  place-content: center;
+}
+.loader__container .h1 {
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+}
+.profile__logo {
+  width: 120px;
+  display: block;
+  margin: 20px auto;
+}
+.profile__h1 {
+  text-align: center;
+  font-size: 2em;
+  letter-spacing: 1px;
+}
+.profile__h2 {
+  font-size: 1.3em;
+  margin-top: 20px;
+}
+form {
+  margin-top: 20px;
+}
+.profile__input {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  display: block;
+  font-size: 25px;
+  height: 50px;
+  padding: 0px 10px;
+  width: 100%;
+  outline: none;
+}
+.profile__input:focus {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+.profile__btn {
+  height: 45px;
+  padding: 5px 20px;
+  width: 100%;
+  font-size: 20px;
+  margin-top: 15px;
+  border-radius: 5px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: rgba(223, 0, 255, 0.5);
+  cursor: pointer;
+  margin-bottom: 40px;
+}
+.profile__btn:hover {
+  background: rgba(223, 0, 255, 0.8);
+  box-shadow: 2px 10px 5px -3px rgba(176, 176, 176, 0.1);
+}
+.profile__btn_secondary {
+  height: 45px;
+  padding: 5px 20px;
+  width: 100%;
+  font-size: 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  cursor: pointer;
+}
+.profile__btn_secondary:hover {
+  background: rgba(223, 0, 255, 0.1);
+  box-shadow: 2px 10px 5px -3px rgba(176, 176, 176, 0.1);
+}
+.quizz__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+.quizz__container .quizz__puntuation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  margin-top: 20px;
+  width: 100%;
+  height: 50px;
+}
+.quizz__container .quizz__puntuation .quizz__button {
+  align-self: center;
+  width: 40%;
+}
+.quizz__container .quizz__puntuation .quizz__puntuation_number {
+  display: flex;
+  font-size: 2em;
+}
+.quizz__container .quizz__puntuation .quizz__puntuation_number img {
+  height: 50px;
+  margin-left: 10px;
+  width: 50px;
+}
+.quizz__container .quizz__h1 {
+  font-size: 2em;
+  letter-spacing: 1px;
+  text-align: center;
+  flex-direction: column;
+}
+.quizz__container .true {
+  color: green;
+  font-size: 4em;
+}
+.quizz__container .quizz__options {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 15px;
+  margin: 40px 0px;
+}
+.quizz__container .quizz__option {
+  font-size: 2em;
+  font-weight: bold;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  transition: transform 200ms;
+}
+.quizz__container .quizz__option_active {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  transform: scale(1.02);
+}
+.quizz__container .quizz__error {
+  height: 100px;
+  font-weight: 800;
+  font-size: 1em;
+}
+.quizz__container .quizz__error h2 {
+  text-align: center;
+}
+.quizz__container .quizz__error_icon {
+  width: 40px;
+  display: block;
+  margin: 0px auto;
+}
+@media (max-width: 700px) {
+  .quizz__container .quizz__puntuation {
+    margin-bottom: 20px;
+  }
+  .quizz__container .question__container {
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+}
+@media (min-width: 510px) {
+  .quizz__container .quizz__option {
+    min-width: 500px;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map*/
