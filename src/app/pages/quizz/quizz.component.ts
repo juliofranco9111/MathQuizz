@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { getQuestion } from 'src/app/helpers/question';
 import { DataService } from 'src/app/services/data.service';
 
+import { Title, Meta } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-quizz',
   templateUrl: './quizz.component.html',
@@ -25,16 +27,26 @@ export class QuizzComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private dataService: DataService
+    private dataService: DataService,
+    private title: Title,
+    private meta: Meta
   ) {}
 
   ngOnInit(): void {
+    this.title.setTitle(
+      localStorage.getItem('name')
+        ? `| Quizz - ${localStorage.getItem('name')} |`
+        : '| Quizz |'
+    );
+
+    this.meta.updateTag({ name: 'description', content: 'Quizz page of MathQuizz' })
+
     localStorage.setItem('current', null);
     this.level = parseInt(this.route.params['value'].level);
     this.question = getQuestion(this.level);
     this.firstNumber = this.question[0];
     this.secondNumber = this.question[1];
-    this.loading = false;    
+    this.loading = false;
   }
 
   handleNextQuestion(prev: number[]) {

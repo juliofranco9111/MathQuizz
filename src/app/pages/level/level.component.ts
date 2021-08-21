@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
-
+import { Title, Meta } from '@angular/platform-browser';
 @Component({
   selector: 'app-level',
   templateUrl: './level.component.html',
@@ -32,11 +32,16 @@ export class LevelComponent implements OnInit {
     },
   ];
 
-  constructor(private router: Router, private dataService: DataService) {}
+  constructor(
+    private router: Router,
+    private dataService: DataService,
+    private title: Title,
+    private meta: Meta
+  ) {}
 
   ngOnInit(): void {
-    
-    
+    this.title.setTitle('| MathQuizz - Select level |');
+    this.meta.updateTag({ name: 'description', content: 'Select level of MathQuizz' })
     this.loading = false;
   }
 
