@@ -1,24 +1,19 @@
-export function getQuestion(level: number) {
-  let randomNumOne: number;
-  switch (level) {
-    case 1:
-      // Math.floor(Math.random() * "maxNumber" ) + "minNumber";
-      randomNumOne = Math.floor(Math.random() * 3) + 1;
-      break;
-    case 2:
-      randomNumOne = Math.floor(Math.random() * 3) + 4;
-      break;
-    case 3:
-      randomNumOne = Math.round(Math.random() * 3) + 7;
-      break;
-      
-      case 4:
-      randomNumOne = Math.round(Math.random() * 8) + 1;
-      break;
-  }
-  const randomNumTwo = Math.round(Math.random() * (9 - 1) + 1);
+export function getQuestion(level: number, prevQuestion?: number[]) {
+ 
+  if (prevQuestion) {
+    let [first, second] = prevQuestion;
+    let question = [randomNumberByLevel(level), randomOnetoNine()];
 
-  return [randomNumOne, randomNumTwo];
+    if (prevQuestion.every((value, index) => value === question[index])) {
+      question = null;
+      question = [randomNumberByLevel(level), randomOnetoNine()];
+    }
+
+    return question;
+  }
+
+  let question = [randomNumberByLevel(level), randomOnetoNine()];
+  return question;
 }
 
 export function getWrongResponses(response: number) {
@@ -36,4 +31,22 @@ export function getWrongResponses(response: number) {
   });
 
   return responses;
+}
+
+function randomNumberByLevel(level: number): number {
+  switch (level) {
+    case 1:
+      // Math.floor(Math.random() * "maxNumber" ) + "minNumber";
+      return Math.floor(Math.random() * 3) + 1;
+    case 2:
+      return Math.floor(Math.random() * 3) + 4;
+    case 3:
+      return Math.round(Math.random() * 3) + 7;
+    case 4:
+      return Math.round(Math.random() * 8) + 1;
+  }
+}
+
+function randomOnetoNine(): number {
+  return Math.round(Math.random() * (9 - 1) + 1);
 }

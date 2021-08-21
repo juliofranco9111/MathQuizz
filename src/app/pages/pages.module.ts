@@ -1,3 +1,4 @@
+import { LoadingComponent } from './../components/loading/loading.component';
 import { LevelItemComponent } from './../components/level-item/level-item.component';
 import { FormComponent } from './../components/form/form.component';
 import { CommonModule } from '@angular/common';
@@ -12,7 +13,7 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [ReactiveFormsModule, CommonModule, RouterModule],
-  exports: [StartComponent, FormComponent, QuestionComponent, LevelItemComponent],
+  exports: [StartComponent, FormComponent, QuestionComponent, LevelItemComponent, LoadingComponent],
   declarations: [
     StartComponent,
     FormComponent,
@@ -20,7 +21,8 @@ import { RouterModule } from '@angular/router';
     QuizzComponent,
     GameOverComponent,
     LevelComponent,
-    LevelItemComponent
+    LevelItemComponent,
+    LoadingComponent
   ],
   providers: [],
 })

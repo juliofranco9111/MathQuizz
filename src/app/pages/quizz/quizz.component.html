@@ -1,8 +1,8 @@
-<div class="quizz__container animated fadeIn">
+<div  *ngIf="!loading" class="quizz__container animated fadeIn">
 
     <div class='quizz__puntuation animated fadeIn'>
         <div class='quizz__button'>
-            <a [routerLink]="['/']" class='btn-secondary'>
+            <a [routerLink]="['/game-over/2']" (click)="handleExit()" class='btn-secondary'>
                 Salir
             </a>
         </div>
@@ -28,3 +28,5 @@
 
 
 </div>
+
+<app-loading *ngIf="loading"></app-loading>
