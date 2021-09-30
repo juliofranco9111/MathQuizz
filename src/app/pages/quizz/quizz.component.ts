@@ -63,7 +63,6 @@ export class QuizzComponent implements OnInit {
   }
 
   handleNextQuestion() {
-    console.log(this.tables.length);
     this.tables.shift();
     this.handleInit();
   }
