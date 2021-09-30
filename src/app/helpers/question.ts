@@ -4,16 +4,12 @@ const tables = (level: string) => {
   switch (level) {
     case '1':
       return [1, 2, 3];
-
     case '2':
       return [4, 5, 6];
-
     case '3':
       return [7, 8, 9];
-
     case '4':
       return [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
     default:
       return [];
   }
@@ -25,7 +21,6 @@ const getWrongOptions = (number: number) => {
     const numRandom = Math.random() * (number + 10 - 1) + 1;
     const rounded = Math.floor(numRandom);
     if (rounded != number && responses.indexOf(rounded) == -1) {
-      console.log(rounded);
       responses.push(rounded);
     }
   }
@@ -34,7 +29,6 @@ const getWrongOptions = (number: number) => {
 
 export const getTables = (level: string) => {
   const numbersByLevel = tables(level);
-
   let multiplier: Number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   let operaciones: any[] = [];
   for (let number of numbersByLevel) {

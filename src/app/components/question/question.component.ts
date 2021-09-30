@@ -7,15 +7,13 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { getWrongResponses } from '../../helpers/question';
 @Component({
   selector: 'app-question',
   templateUrl: './question.component.html',
   styleUrls: [],
 })
 export class QuestionComponent implements OnInit, OnChanges {
-  @Input() firstNumber: number;
-  @Input() secondNumber: number;
+  @Input() question: any;
   @Output() setResponse = new EventEmitter<number>();
 
   public responses: number[];
@@ -23,21 +21,21 @@ export class QuestionComponent implements OnInit, OnChanges {
   public disabled: boolean;
   public second: number;
   public result: number;
-  public obser: any;
   constructor() {}
+
+  ngOnInit(): void {
+    this.disabled = false;
+    this.responses = this.question.options;
+    this.first = this.question.table;
+    this.second = this.question.multiplier;
+    this.result = this.question.result;
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.ngOnInit();
     this.disabled = false;
   }
-  
-  ngOnInit(): void {
-    this.disabled = false;
-    this.result = this.firstNumber * this.secondNumber;
-    
-    this.responses = getWrongResponses(this.result);
-  }
-  
+
   handleResponse(response: number): void {
     this.disabled = true;
     this.setResponse.emit(response);

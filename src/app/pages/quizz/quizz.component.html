@@ -13,7 +13,7 @@
     </div>
 
     <!-- Question component -->
-    <app-question *ngIf="!loading" [firstNumber]="firstNumber" [secondNumber]="secondNumber"
+    <app-question *ngIf="!loading" [question]="currentQuestion"
         (setResponse)="handleValidateResponse($event)"></app-question>
 
     <!-- Si error -->
