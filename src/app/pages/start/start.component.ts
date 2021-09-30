@@ -1,6 +1,7 @@
 import { DataService } from './../../services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-start',
@@ -13,7 +14,7 @@ export class StartComponent implements OnInit {
   showForm = false;
   loading = true;
 
-  constructor(private dataS: DataService, private router: Router) {}
+  constructor(private dataS: DataService, private router: Router, private update: SwUpdate) {}
 
   ngOnInit(): void {
     this.nameUser = this.dataS.getUserName();
@@ -24,8 +25,9 @@ export class StartComponent implements OnInit {
 
     this.loading = false;
 
-    
   }
+
+
 
   
 }
