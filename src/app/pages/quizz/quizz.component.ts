@@ -1,6 +1,7 @@
+import { QuestionService } from './../../services/question.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { getQuestion } from 'src/app/helpers/question';
+import { Router } from '@angular/router';
+import { getTables } from 'src/app/helpers/question';
 import { DataService } from 'src/app/services/data.service';
 
 import { Title, Meta } from '@angular/platform-browser';
@@ -15,21 +16,22 @@ export class QuizzComponent implements OnInit {
   public correct: boolean;
   public loading = true;
 
-  public question: number[];
-  public prevQuestion: number[];
+  public tables: any[];
+
+  public currentQuestion: any;
 
   public points: number = 0;
 
-  public firstNumber: number;
-  public secondNumber: number;
-  public level: number;
+  public level: string;
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
+
     private dataService: DataService,
-    private title: Title,
+    private questionService: QuestionService,
+      private title: Title,
     private meta: Meta
+
   ) {}
 
   ngOnInit(): void {
@@ -42,21 +44,32 @@ export class QuizzComponent implements OnInit {
     this.meta.updateTag({ name: 'description', content: 'Quizz page of MathQuizz' })
 
     localStorage.setItem('current', null);
-    this.level = parseInt(this.route.params['value'].level);
-    this.question = getQuestion(this.level);
-    this.firstNumber = this.question[0];
-    this.secondNumber = this.question[1];
-    this.loading = false;
+
+    this.questionService.setNewQuestions();
+    this.handleInit();
+    
   }
 
-  handleNextQuestion(prev: number[]) {
-    this.question = getQuestion(this.level, this.prevQuestion);
-    this.firstNumber = this.question[0];
-    this.secondNumber = this.question[1];
+  handleInit() {
+    this.level = this.questionService.level;
+    this.tables = this.questionService.questions;
+    this.currentQuestion = this.tables[0];
+    this.loading = false;
+    if (this.tables.length < 1) {
+      this.handleExit();
+      return;
+    }
+
+  }
+
+  handleNextQuestion() {
+    console.log(this.tables.length);
+    this.tables.shift();
+    this.handleInit();
   }
 
   handleValidateResponse(response: number) {
-    if (response !== this.firstNumber * this.secondNumber) {
+    if (response !== this.currentQuestion.result) {
       this.error = true;
       this.correct = false;
       setTimeout(() => {
@@ -66,13 +79,12 @@ export class QuizzComponent implements OnInit {
       return;
     }
     this.error = false;
-    this.prevQuestion = this.question;
     this.correct = true;
     setTimeout(() => {
-      this.points = this.points + 100;
+      this.points = this.points + 500;
       this.dataService.setPoints(this.points);
       this.correct = null;
-      this.handleNextQuestion(this.question);
+      this.handleNextQuestion();
     }, 700);
   }
 

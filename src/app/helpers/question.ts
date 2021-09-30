@@ -1,52 +1,45 @@
-export function getQuestion(level: number, prevQuestion?: number[]) {
- 
-  if (prevQuestion) {
-    let [first, second] = prevQuestion;
-    let question = [randomNumberByLevel(level), randomOnetoNine()];
+const randomizerArray = (arr: any): [] => arr.sort(() => 0.5 - Math.random());
 
-    if (prevQuestion.every((value, index) => value === question[index])) {
-      question = null;
-      question = [randomNumberByLevel(level), randomOnetoNine()];
-    }
-
-    return question;
-  }
-
-  let question = [randomNumberByLevel(level), randomOnetoNine()];
-  return question;
-}
-
-export function getWrongResponses(response: number) {
-  let wrongAnswers = [];
-
-  while (wrongAnswers.length < 3) {
-    const random = Math.floor(Math.random() * (response + 5)) + 1;
-    if (random !== response && !wrongAnswers.includes(random)) {
-      wrongAnswers.push(random);
-    }
-  }
-
-  const responses = [...wrongAnswers, response].sort(function () {
-    return Math.random() - 0.5;
-  });
-
-  return responses;
-}
-
-function randomNumberByLevel(level: number): number {
+const tables = (level: string) => {
   switch (level) {
-    case 1:
-      // Math.floor(Math.random() * "maxNumber" ) + "minNumber";
-      return Math.floor(Math.random() * 3) + 1;
-    case 2:
-      return Math.floor(Math.random() * 3) + 4;
-    case 3:
-      return Math.round(Math.random() * 3) + 7;
-    case 4:
-      return Math.round(Math.random() * 8) + 1;
+    case '1':
+      return [1, 2, 3];
+    case '2':
+      return [4, 5, 6];
+    case '3':
+      return [7, 8, 9];
+    case '4':
+      return [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    default:
+      return [];
   }
-}
+};
 
-function randomOnetoNine(): number {
-  return Math.round(Math.random() * (9 - 1) + 1);
-}
+const getWrongOptions = (number: number) => {
+  let responses: number[] = [];
+  for (let i = responses.length; responses.length < 3; i++) {
+    const numRandom = Math.random() * (number + 10 - 1) + 1;
+    const rounded = Math.floor(numRandom);
+    if (rounded != number && responses.indexOf(rounded) == -1) {
+      responses.push(rounded);
+    }
+  }
+  return randomizerArray(responses);
+};
+
+export const getTables = (level: string) => {
+  const numbersByLevel = tables(level);
+  let multiplier: Number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  let operaciones: any[] = [];
+  for (let number of numbersByLevel) {
+    let array = multiplier.map((e: any) => ({
+      table: number,
+      multiplier: e,
+      result: number * e,
+      options: randomizerArray([...getWrongOptions(number * e), number * e]),
+    }));
+    operaciones.push(array);
+  }
+  return randomizerArray(operaciones.flat());
+};
+
