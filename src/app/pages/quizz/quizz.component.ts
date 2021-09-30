@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { getTables } from 'src/app/helpers/question';
 import { DataService } from 'src/app/services/data.service';
 
+import { Title, Meta } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-quizz',
   templateUrl: './quizz.component.html',
@@ -24,12 +26,25 @@ export class QuizzComponent implements OnInit {
 
   constructor(
     private router: Router,
+
     private dataService: DataService,
-    private questionService: QuestionService
+    private questionService: QuestionService,
+      private title: Title,
+    private meta: Meta
+
   ) {}
 
   ngOnInit(): void {
+    this.title.setTitle(
+      localStorage.getItem('name')
+        ? `| Quizz - ${localStorage.getItem('name')} |`
+        : '| Quizz |'
+    );
+
+    this.meta.updateTag({ name: 'description', content: 'Quizz page of MathQuizz' })
+
     localStorage.setItem('current', null);
+
     this.questionService.setNewQuestions();
     this.handleInit();
     
@@ -44,6 +59,7 @@ export class QuizzComponent implements OnInit {
       this.handleExit();
       return;
     }
+
   }
 
   handleNextQuestion() {
