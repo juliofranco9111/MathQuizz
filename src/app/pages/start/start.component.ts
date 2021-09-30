@@ -15,16 +15,12 @@ export class StartComponent implements OnInit {
   showForm = false;
   loading = true;
 
-<<<<<<< HEAD
-  constructor(private dataS: DataService, private router: Router, private update: SwUpdate) {}
-=======
   constructor(
     private dataS: DataService,
     private router: Router,
     private title: Title,
     private meta: Meta
   ) {}
->>>>>>> 3aa99f43f1acdac54893a4342708786a57da10e8
 
   ngOnInit(): void {
     this.title.setTitle('| MathQuizz - Home|');
@@ -37,14 +33,5 @@ export class StartComponent implements OnInit {
     }
 
     this.loading = false;
-<<<<<<< HEAD
-
   }
-
-
-
-  
-=======
-  }
->>>>>>> 3aa99f43f1acdac54893a4342708786a57da10e8
 }
