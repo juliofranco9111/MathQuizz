@@ -20,7 +20,7 @@
     <div class="animated fadeIn quizz__error">
         <h1 *ngIf="!correct && error" class='animated pulse infinite quizz__error_icon'>❌</h1>
 
-        <h2 *ngIf="!correct && error">La respuesta es: {{firstNumber * secondNumber}}</h2>
+        <h2 *ngIf="!correct && error">La respuesta es: {{currentQuestion.result}}</h2>
 
         <h1 *ngIf="correct && !error" class="animated pulse infinite quizz__error_icon true">✔</h1>
     </div>

@@ -1,5 +1,6 @@
+import { QuestionService } from './../../services/question.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { getTables } from 'src/app/helpers/question';
 import { DataService } from 'src/app/services/data.service';
 
@@ -17,36 +18,42 @@ export class QuizzComponent implements OnInit {
 
   public currentQuestion: any;
 
-
   public points: number = 0;
 
   public level: string;
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
-    private dataService: DataService
-  ) {
-    
+    private dataService: DataService,
+    private questionService: QuestionService
+  ) {}
+
+  ngOnInit(): void {
+    localStorage.setItem('current', null);
+    this.questionService.setNewQuestions();
+    this.handleInit();
     
   }
-  
-  ngOnInit(): void {
-    this.level = this.route.params['value'].level;
-    localStorage.setItem('current', null);
-    this.tables = getTables(this.level);
+
+  handleInit() {
+    this.level = this.questionService.level;
+    this.tables = this.questionService.questions;
     this.currentQuestion = this.tables[0];
-    this.loading = false;    
+    this.loading = false;
+    if (this.tables.length < 1) {
+      this.handleExit();
+      return;
+    }
   }
 
   handleNextQuestion() {
-    console.log(this.tables.length)
+    console.log(this.tables.length);
     this.tables.shift();
-    this.ngOnInit();
+    this.handleInit();
   }
 
   handleValidateResponse(response: number) {
-    if (response !== this.currentQuestion.result ) {
+    if (response !== this.currentQuestion.result) {
       this.error = true;
       this.correct = false;
       setTimeout(() => {
@@ -58,11 +65,11 @@ export class QuizzComponent implements OnInit {
     this.error = false;
     this.correct = true;
     setTimeout(() => {
-      this.points = this.points + 100;
+      this.points = this.points + 500;
       this.dataService.setPoints(this.points);
       this.correct = null;
       this.handleNextQuestion();
-    }, 700); 
+    }, 700);
   }
 
   handleExit() {
